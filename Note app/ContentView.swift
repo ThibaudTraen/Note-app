@@ -8,17 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var item: String = ""
+    var label: String = "Maak aan"
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Thibaud zijn code")
+        NavigationStack {
+            VStack {
+                Button(action: {
+                    print("actie")
+                }){
+                    Text("\(label)")
+                        .background(.green)
+                        .padding(.vertical, 10)
+                }
+                
+                
+                TextField("To do", text: $item)
+                    .padding(.vertical,20)
+                    .padding(.horizontal,15)
+                    .font(.title)       .foregroundStyle(.black)    .background(.ultraThinMaterial)  .cornerRadius(12)
+                    
+                    
+                    Spacer()
+                    
+                }
+                .navigationTitle("Hoofdscherm")
+                .padding()
+            }
         }
-        .padding()
     }
-}
-
 #Preview {
     ContentView()
 }
